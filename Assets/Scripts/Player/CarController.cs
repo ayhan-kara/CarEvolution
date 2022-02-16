@@ -11,9 +11,10 @@ public class CarController : MonoBehaviour
 
     float dragAmount = 0.98f;
     float mouseStart;
-    float deadZone = 0.5f;
+    float deadZone = 0.1f;
     Vector3 moveVec3;
 
+    public float carAge;
     GameManager gameManager;
 
     private void Awake()
@@ -26,7 +27,6 @@ public class CarController : MonoBehaviour
         if (!gameManager.isStarted)
             return;
         Controller();
-
     }
 
     public void Controller()
@@ -51,22 +51,40 @@ public class CarController : MonoBehaviour
             {
                 delta = Mathf.Sign(delta);
             }
-            if (transform.position.x > 7.4f && delta > 0)
+            if (transform.position.x > 1f && delta > 0)
             {
                 return;
             }
-            else if (transform.position.x < -7.4f && delta < 0)
+            else if (transform.position.x < -1f && delta < 0)
             {
                 return;
             }
         }
-        
-
-
         moveVec3 *= dragAmount;
         moveVec3 = Vector3.ClampMagnitude(moveVec3, maxSpeed);
         moveVec3 = Vector3.Lerp(moveVec3.normalized, transform.forward, traction * Time.deltaTime) * moveVec3.magnitude;
+
+        if (carAge > 10)
+        {
+            transform.GetChild(6).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(false);
+            transform.GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(5).gameObject.SetActive(false);
+
+        }
+        if (carAge < 10)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(3).gameObject.SetActive(true);
+            transform.GetChild(4).gameObject.SetActive(true);
+            transform.GetChild(5).gameObject.SetActive(true);
+            transform.GetChild(6).gameObject.SetActive(false);
+        }
     }
 
-    
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class Obstacles : MonoBehaviour
 {
     CarController carController;
     public Material material1;
@@ -13,11 +13,10 @@ public class Collectible : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.tag == "Player")
         {
             gameObject.GetComponent<MeshRenderer>().material = material1;
-            carController.carAge += 10;
+            carController.carAge -= 10;
             Debug.Log(carController.carAge);
         }
     }
