@@ -16,5 +16,20 @@ public class CarController : MonoBehaviour
     {
         if (!gameManager.isStarted)
             return;
+        CarSwap();
+    }
+
+    public void CarSwap()
+    {
+        if (carAge > 10)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        if (carAge < 10)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 }
