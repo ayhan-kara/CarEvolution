@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isStarted = false;
     public bool isNotStarted = false;
+    public bool isFinished = false;
 
     private void Update()
     {

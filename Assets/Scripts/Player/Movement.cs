@@ -1,33 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
     Vector3 firstPressPos, secondPressPos, currentSwipe, SwipeCurrent;
     public float sensivity;
-    public float NothingField = 1.5f, clampOnAxis = 6f, JumpToSens = 50, jumpToMove = 7, jumpForWait = 1.5f, rotateSensRadian = 30f, angle = 20f;
-    public bool isRotation, isjump, isSlide;
+    public float NothingField = 1.5f, clampOnAxis = 6, rotateSensRadian = 30f, angle = 20f;
+    public bool isRotation;
 
-
+    GameManager gameManager;
     private Rigidbody rb;
     public Rigidbody Rb { get { return (rb == null) ? rb = GetComponent<Rigidbody>() : rb; } }
 
-
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
-        swipe();
-        if (isRotation)
+        if (gameManager.isFinished)
         {
-            doRotation();
+
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), 5 * Time.deltaTime);
+            swipe();
+            if (isRotation)
+            {
+                doRotation();
+            }
+            else
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), 5 * Time.deltaTime);
+            }
         }
-
     }
     public void doRotation()
     {
@@ -51,10 +58,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-
             firstPressPos = Input.mousePosition;
-
-
         }
         if (Input.GetMouseButton(0) == true)
         {
@@ -71,27 +75,13 @@ public class Movement : MonoBehaviour
 
             if (firstPressPos.x != secondPressPos.x || firstPressPos.y != secondPressPos.y)
             {
-                //swipe left
                 if (currentSwipe.x < 0)
                 {
                     transform.localPosition += transform.right * sensivity * .1f * SwipeCurrent.x * Time.deltaTime;
-
-
-
                 }
-                //swipe right
                 if (currentSwipe.x > 0)
                 {
-
                     transform.localPosition += transform.right * sensivity * .1f * SwipeCurrent.x * Time.deltaTime;
-
-                }
-                if (SwipeCurrent.y < -JumpToSens && isSlide == true)
-                {
-                    isSlide = false;
-                    isjump = false;
-                    //EventManager.onAnimationPlay.Invoke("slide");
-                    //StartCoroutine(JumpforWait(1f, isSlide));
                 }
             }
             else
@@ -100,12 +90,10 @@ public class Movement : MonoBehaviour
             }
             firstPressPos = secondPressPos;
         }
-
         if (Input.GetMouseButton(0) == false)
         {
             currentSwipe.x = 0;
         }
-
     }
 
 }

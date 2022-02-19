@@ -15,14 +15,11 @@ public class Path : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
     }
-
-
     private void Update()
     {
         if (!gameManager.isStarted)
             return;
         distanceTraveled += speed * Time.deltaTime;
         transform.position = pathCreator.path.GetPointAtDistance(distanceTraveled, end);
-
     }
 }
