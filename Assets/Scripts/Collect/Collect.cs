@@ -5,6 +5,18 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     public float carAge = 0;
+    Vector3 colliderPos;
+
+    private void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            colliderPos = hit.collider.transform.position;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Collectible")
@@ -57,6 +69,13 @@ public class Collect : MonoBehaviour
             default:
                 break;
 
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Oil")
+        {
+            transform.Rotate(Vector3.up, 10f);
         }
     }
 }
