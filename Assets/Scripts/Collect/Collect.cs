@@ -22,11 +22,17 @@ public class Collect : MonoBehaviour
         if (other.tag == "Collectible")
         {
             carAge++;
+            Vector3 playerPos1 = transform.localPosition;
+            playerPos1.y += 0.3f;
+            transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         else if (other.tag == "Obstacle")
         {
             carAge--;
+            Vector3 playerPos1 = transform.localPosition;
+            playerPos1.y += 0.3f;
+            transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         switch (carAge)
@@ -76,6 +82,22 @@ public class Collect : MonoBehaviour
         if (other.tag == "Oil")
         {
             transform.Rotate(Vector3.up, 10f);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Collectible")
+        {
+            Vector3 playerPos2 = transform.localPosition;
+            playerPos2.y -= 0.3f;
+            transform.localPosition = playerPos2;
+        }
+        else if (other.tag == "Obstacle")
+        {
+            Vector3 playerPos2 = transform.localPosition;
+            playerPos2.y -= 0.3f;
+            transform.localPosition = playerPos2;
         }
     }
 }
