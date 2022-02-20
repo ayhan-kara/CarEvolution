@@ -5,9 +5,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     Vector3 firstPressPos, secondPressPos, currentSwipe, SwipeCurrent;
-    public float sensivity;
-    public float NothingField = 1.5f, clampOnAxis = 6, rotateSensRadian = 30f, angle = 20f;
-    public bool isRotation;
+    public float sensivity = 6f;
+    public float NothingField = 1.5f, clampOnAxis = 7f, rotateSensRadian = 10f, angle = 10f;
+    public bool isRotation = true;
 
     GameManager gameManager;
     private Rigidbody rb;
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetMouseButton(0) == true)
         {
-            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * sensivity * angle * Time.deltaTime);
+            //transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * sensivity * angle * Time.deltaTime);
 
             secondPressPos = Input.mousePosition;
 
