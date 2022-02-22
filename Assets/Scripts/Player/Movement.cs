@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     {
         if (gameManager.isFinished)
         {
-
+            
         }
         else
         {

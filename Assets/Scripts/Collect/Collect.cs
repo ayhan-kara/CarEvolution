@@ -6,6 +6,14 @@ public class Collect : MonoBehaviour
 {
     public float carAge = 0;
     Vector3 colliderPos;
+    GameManager gameManager;
+    Movement movement;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        movement = FindObjectOfType<Movement>();
+    }
 
     private void Update()
     {
@@ -19,6 +27,14 @@ public class Collect : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "FinishPoint")
+        {
+            gameManager.isFinished = true;
+            movement.sensivity = 0f;
+            movement.clampOnAxis = 0f;
+            movement.isRotation = false;
+            movement.rotateSensRadian = 0f;
+        }
         if (other.tag == "Collectible")
         {
             carAge++;
