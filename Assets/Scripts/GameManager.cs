@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ultraSpeedBar1;
     [SerializeField] GameObject ultraSpeedBar2;
     [SerializeField] GameObject playButton;
+
+    [SerializeField] Ease ease;
 
     Collect collect;
 

@@ -46,6 +46,10 @@ public class Collect : MonoBehaviour
         else if (other.tag == "Obstacle")
         {
             carAge--;
+            if (carAge < 0 )
+            {
+                carAge = 0;
+            }
             Vector3 playerPos1 = transform.localPosition;
             playerPos1.y += 0.3f;
             transform.localPosition = playerPos1;
