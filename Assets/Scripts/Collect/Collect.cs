@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Collect : MonoBehaviour
 {
@@ -38,9 +39,10 @@ public class Collect : MonoBehaviour
         if (other.tag == "Collectible")
         {
             carAge++;
-            Vector3 playerPos1 = transform.localPosition;
-            playerPos1.y += 0.3f;
-            transform.localPosition = playerPos1;
+            transform.DOMoveY(1f, 0.5f);
+            //Vector3 playerPos1 = transform.localPosition;
+            //playerPos1.y += 0.3f;
+            //transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         else if (other.tag == "Obstacle")
@@ -50,9 +52,10 @@ public class Collect : MonoBehaviour
             {
                 carAge = 0;
             }
-            Vector3 playerPos1 = transform.localPosition;
-            playerPos1.y += 0.3f;
-            transform.localPosition = playerPos1;
+            transform.DOMoveY(1f, 0.5f);
+            //Vector3 playerPos1 = transform.localPosition;
+            //playerPos1.y += 0.3f;
+            //transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         switch (carAge)
@@ -101,7 +104,7 @@ public class Collect : MonoBehaviour
     {
         if (other.tag == "Oil")
         {
-            transform.Rotate(Vector3.up, 10f);
+            transform.Rotate(Vector3.up, 5f);
         }
     }
 
@@ -109,15 +112,17 @@ public class Collect : MonoBehaviour
     {
         if (other.tag == "Collectible")
         {
-            Vector3 playerPos2 = transform.localPosition;
-            playerPos2.y -= 0.3f;
-            transform.localPosition = playerPos2;
+            transform.DOMoveY(0f, 0.5f);
+            //Vector3 playerPos2 = transform.localPosition;
+            //playerPos2.y -= 0.3f;
+            //transform.localPosition = playerPos2;
         }
         else if (other.tag == "Obstacle")
         {
-            Vector3 playerPos2 = transform.localPosition;
-            playerPos2.y -= 0.3f;
-            transform.localPosition = playerPos2;
+            transform.DOMoveY(0f, 0.5f);
+            //Vector3 playerPos2 = transform.localPosition;
+            //playerPos2.y -= 0.3f;
+            //transform.localPosition = playerPos2;
         }
     }
 }
