@@ -9,11 +9,12 @@ public class Collect : MonoBehaviour
     Vector3 colliderPos;
     GameManager gameManager;
     Movement movement;
-
+    Path path;
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         movement = FindObjectOfType<Movement>();
+        path = FindObjectOfType<Path>();
     }
 
     private void Update()
@@ -30,6 +31,12 @@ public class Collect : MonoBehaviour
     {
         if (other.tag == "FinishPoint")
         {
+            carAge--;
+            if (carAge == 0)
+            {
+                path.speed = 0f;
+            }
+            transform.DOMoveX(0f, 0.5f);
             gameManager.isFinished = true;
             movement.sensivity = 0f;
             movement.clampOnAxis = 0f;
@@ -48,6 +55,7 @@ public class Collect : MonoBehaviour
         else if (other.tag == "Obstacle")
         {
             carAge--;
+            Debug.Log(carAge);
             if (carAge < 0 )
             {
                 carAge = 0;
