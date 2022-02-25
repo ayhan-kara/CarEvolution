@@ -18,8 +18,8 @@ public class CoinsManager : MonoBehaviour
 
     [Space]
     [Header("Animation Settings")]
-    [SerializeField][Range(0.1f, 3f)] float minAnimDuration;
-    [SerializeField][Range(3f, 8f)] float maxAnimDuration;
+    [SerializeField][Range(0.1f, 1f)] float minAnimDuration;
+    [SerializeField][Range(1f, 3f)] float maxAnimDuration;
     [SerializeField] Ease easeType;
 
     private int c = 0;

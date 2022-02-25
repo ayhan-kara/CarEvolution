@@ -3645,12 +3645,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinUiText: {fileID: 439312469}
-  animatedCoinPrefab: {fileID: 4033822839321833552, guid: f19b52bc2573b4e508c60232d5ba4c53, type: 3}
+  animatedCoinPrefab: {fileID: 1284304205642556215, guid: cb2e1e8aa0d44489c8d332b91c9a4202, type: 3}
   target: {fileID: 1582283756}
-  maxCoins: 100
-  minAnimDuration: 3
-  maxAnimDuration: 3
-  easeType: 33
+  maxCoins: 60
+  minAnimDuration: 0.674
+  maxAnimDuration: 1.67
+  easeType: 17
 --- !u!4 &530656106
 Transform:
   m_ObjectHideFlags: 0
@@ -3977,7 +3977,7 @@ MonoBehaviour:
     FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.8
-    FarClipPlane: 300
+    FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -3998,7 +3998,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616954097}
-  m_LocalRotation: {x: -0, y: -9.592327e-14, z: 7.81597e-14, w: 1}
+  m_LocalRotation: {x: -0, y: -1.7763568e-15, z: 8.881784e-16, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4031,7 +4031,7 @@ MonoBehaviour:
   m_SplitView: 0
   m_RenderMode: 1
   m_SortingOrder: 0
-  m_PlaneDistance: 300
+  m_PlaneDistance: 500
 --- !u!1 &623250752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,7 +4729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &723155309
 Transform:
   m_ObjectHideFlags: 0
@@ -10245,7 +10245,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.8
-  far clip plane: 300
+  far clip plane: 1000
   field of view: 70
   orthographic: 0
   orthographic size: 5
@@ -10271,7 +10271,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.33119488, y: -0.000000022960176, z: 0.000000008059132, w: 0.9435624}
+  m_LocalRotation: {x: 0.33119488, y: -0.000000022960165, z: 0.000000008059127, w: 0.9435624}
   m_LocalPosition: {x: 0, y: 14.7, z: -16.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11322,21 +11322,21 @@ MonoBehaviour:
     _bezierPath:
       points:
       - {x: 1.3099997, y: 0, z: -0.00000011920926}
-      - {x: 71.56615, y: 0, z: -2.220294}
-      - {x: 141.8223, y: 0, z: -4.440588}
-      - {x: 201.80737, y: 0, z: 0}
-      - {x: 222.12537, y: 0, z: 1.5041043}
-      - {x: 248.62537, y: 0, z: 10.90067}
-      - {x: 268.97903, y: 0, z: 9.999998}
-      - {x: 294.59058, y: 0, z: 8.86666}
-      - {x: 326.46036, y: 0, z: -8.6433115}
-      - {x: 352.06104, y: 0, z: -9.999998}
-      - {x: 375.11035, y: 0, z: -11.2214775}
-      - {x: 405.3146, y: 0, z: -1.5031909}
-      - {x: 428.34726, y: 0, z: 0}
-      - {x: 469.85944, y: 0, z: 2.7092268}
-      - {x: 518.4375, y: 0, z: 1.3546134}
-      - {x: 567.0155, y: 0, z: 0}
+      - {x: 71.56636, y: 0, z: -2.220301}
+      - {x: 141.82272, y: 0, z: -4.440602}
+      - {x: 201.80798, y: 0, z: 0}
+      - {x: 222.12598, y: 0, z: 1.5041043}
+      - {x: 248.62598, y: 0, z: 10.90067}
+      - {x: 268.97964, y: 0, z: 9.999998}
+      - {x: 294.5912, y: 0, z: 8.86666}
+      - {x: 326.46097, y: 0, z: -8.643298}
+      - {x: 352.06165, y: 0, z: -9.999998}
+      - {x: 375.11115, y: 0, z: -11.2214985}
+      - {x: 405.31564, y: 0, z: -1.5031909}
+      - {x: 428.34848, y: 0, z: 0}
+      - {x: 469.86066, y: 0, z: 2.7092056}
+      - {x: 518.4387, y: 0, z: 1.3546028}
+      - {x: 567.0167, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 3
