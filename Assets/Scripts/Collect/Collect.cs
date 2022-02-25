@@ -10,11 +10,14 @@ public class Collect : MonoBehaviour
     GameManager gameManager;
     Movement movement;
     Path path;
+    CoinsManager coinsManager;
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         movement = FindObjectOfType<Movement>();
         path = FindObjectOfType<Path>();
+        coinsManager = FindObjectOfType<CoinsManager>();
     }
 
     private void Update()
@@ -29,6 +32,11 @@ public class Collect : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Coins")
+        {
+            coinsManager.AddCoins(other.transform.position,1);
+            Destroy(other.gameObject);
+        }
         if (other.tag == "FinishPoint")
         {
             carAge--;
@@ -47,9 +55,6 @@ public class Collect : MonoBehaviour
         {
             carAge++;
             transform.DOMoveY(1f, 0.5f);
-            //Vector3 playerPos1 = transform.localPosition;
-            //playerPos1.y += 0.3f;
-            //transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         else if (other.tag == "Obstacle")
@@ -61,9 +66,6 @@ public class Collect : MonoBehaviour
                 carAge = 0;
             }
             transform.DOMoveY(1f, 0.5f);
-            //Vector3 playerPos1 = transform.localPosition;
-            //playerPos1.y += 0.3f;
-            //transform.localPosition = playerPos1;
             Debug.Log(carAge);
         }
         switch (carAge)
@@ -121,16 +123,10 @@ public class Collect : MonoBehaviour
         if (other.tag == "Collectible")
         {
             transform.DOMoveY(0f, 0.5f);
-            //Vector3 playerPos2 = transform.localPosition;
-            //playerPos2.y -= 0.3f;
-            //transform.localPosition = playerPos2;
         }
         else if (other.tag == "Obstacle")
         {
             transform.DOMoveY(0f, 0.5f);
-            //Vector3 playerPos2 = transform.localPosition;
-            //playerPos2.y -= 0.3f;
-            //transform.localPosition = playerPos2;
         }
     }
 }
