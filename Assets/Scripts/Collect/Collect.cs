@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Collect : MonoBehaviour
 {
+    [SerializeField] GameObject confetti;
     public float carAge = 0;
     Vector3 colliderPos;
     GameManager gameManager;
@@ -32,6 +33,11 @@ public class Collect : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "FinishParticle")
+        {
+            Debug.Log("çarptý");
+            confetti.gameObject.SetActive(true);
+        }
         if (other.tag == "Coins")
         {
             coinsManager.AddCoins(other.transform.position,1);
