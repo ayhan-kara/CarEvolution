@@ -19,14 +19,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ultraSpeedBar2;
     [SerializeField] GameObject swipeBar;
     [SerializeField] GameObject swipeHand;
+    [SerializeField] GameObject finished;
 
 
-
+    Path path;
     Collect collect;
 
     private void Start()
     {
         collect = FindObjectOfType<Collect>();
+        path = FindObjectOfType<Path>();
     }
 
     private void Update()
@@ -43,6 +45,10 @@ public class GameManager : MonoBehaviour
             isNotStarted = true;
             swipeBar.SetActive(false);
             swipeHand.SetActive(false);
+        }
+        if (isFinished && path.speed == 0)
+        {
+            finished.SetActive(true);
         }
     }
     public void Restart()
