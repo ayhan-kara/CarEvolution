@@ -17,9 +17,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject highBar;
     [SerializeField] GameObject ultraSpeedBar1;
     [SerializeField] GameObject ultraSpeedBar2;
-    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject swipeBar;
+    [SerializeField] GameObject swipeHand;
 
-    [SerializeField] Ease ease;
+
 
     Collect collect;
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Play();
-        BarSwaps();
+        //BarSwaps();
     }
 
     public void Play()
@@ -40,7 +41,8 @@ public class GameManager : MonoBehaviour
         {
             isStarted = true;
             isNotStarted = true;
-            playButton.SetActive(false);
+            swipeBar.SetActive(false);
+            swipeHand.SetActive(false);
         }
     }
     public void Restart()

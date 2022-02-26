@@ -35,7 +35,6 @@ public class Collect : MonoBehaviour
     {
         if (other.tag == "FinishParticle")
         {
-            Debug.Log("çarptý");
             confetti.gameObject.SetActive(true);
         }
         if (other.tag == "Coins")
@@ -61,18 +60,15 @@ public class Collect : MonoBehaviour
         {
             carAge++;
             transform.DOMoveY(1f, 0.5f);
-            Debug.Log(carAge);
         }
         else if (other.tag == "Obstacle")
         {
             carAge--;
-            Debug.Log(carAge);
             if (carAge < 0 )
             {
                 carAge = 0;
             }
             transform.DOMoveY(1f, 0.5f);
-            Debug.Log(carAge);
         }
         switch (carAge)
         {
